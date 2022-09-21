@@ -1,9 +1,10 @@
+import { NavLink } from "react-router-dom";
 import "./register.css";
 
 export default function Register() {
   return (
     <div className="register">
-      <span className="registerTitle">Login</span>
+      <span className="registerTitle">Register</span>
       <form className="registerForm">
         <label> Username</label>
         <input
@@ -25,7 +26,12 @@ export default function Register() {
         />
         <button className="registerButton">Register</button>
       </form>
-      <button className="registerLoginButton">Login</button>
+      <button className="registerLoginButton">
+        {" "}
+        <NavLink to="/login" className="link">
+          Login
+        </NavLink>
+      </button>
     </div>
   );
 }

@@ -9,18 +9,22 @@ import Settings from "./pages/settings/Settings";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  const user = false;
+  const user = true;
   return (
     <div className="App">
-      <TopBar />
       <BrowserRouter>
+        <TopBar />
+
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="register/*" element={<Register />} />
-          <Route path="login/*" element={<Login />} />
-          <Route path="settings/*" element={<Settings />} />
-          <Route path="write/*" element={<Write />} />
-          <Route path="post/:postId/*" element={<Single />} />
+          <Route path="register/" element={user ? <Home /> : <Register />} />
+          <Route path="login/" element={user ? <Home /> : <Login />} />
+          <Route
+            path="settings/"
+            element={user ? <Settings /> : <Register />}
+          />
+          <Route path="write/" element={user ? <Write /> : <Register />} />
+          <Route path="post/:postId/" element={<Single />} />
         </Routes>
       </BrowserRouter>
     </div>
